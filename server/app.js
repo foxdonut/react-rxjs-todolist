@@ -66,7 +66,7 @@ var saveTodo = function(todo) {
 }
 
 var onSaveTodo = function*() {
-  saveTodo(yield parse(this));
+  saveTodo(yield parse.json(this));
   this.body = getTodoList();
 };
 
