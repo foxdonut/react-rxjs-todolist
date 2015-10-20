@@ -27,7 +27,7 @@ module.exports = function(todos, events$) {
     );
   };
 
-  var th = label => h("th", label);
+  var th = label => h(`th.${label}^`, label);
 
   return h("div",
     h("div", "Todo List:"),
