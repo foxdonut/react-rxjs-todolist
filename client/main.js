@@ -1,4 +1,4 @@
 // main.js is your application's entry point.
-var todoApp = require("./todoApp.jsx");
+var todoApp = require("./todoApp");
 
 todoApp(document.getElementById("app"));

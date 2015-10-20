@@ -1,11 +1,12 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
 var Rx = require("rx");
+var h = require("jsnox")(React);
 var ajax = require("./ajax-rx-dom");
 var model = require("./model");
 var events = require("./events");
-var todoList = require("./todoList.jsx");
-var todoForm = require("./todoForm.jsx");
+var todoList = require("./todoList");
+var todoForm = require("./todoForm");
 
 module.exports = function(element) {
   var events$ = events();
@@ -20,12 +21,7 @@ module.exports = function(element) {
   });
 
   var view$ = Rx.Observable.combineLatest(listView$, formView$, function(listView, formView) {
-    return (
-      <div>
-        {formView}
-        {listView}
-      </div>
-    );
+    return h("div", formView, listView);
   });
 
   view$.subscribe(function(view) {
