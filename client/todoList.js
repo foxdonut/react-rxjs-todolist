@@ -1,6 +1,5 @@
 var React = require("react");
 var h = require("jsnox")(React);
-var RD = React.DOM;
 
 module.exports = function(todos, events$) {
   var onEdit = function(todo) {
@@ -18,9 +17,7 @@ module.exports = function(todos, events$) {
   };
 
   var renderTodo = function(todo) {
-    var key = "todo-" + todo.id;
-
-    return RD.tr({key: key},
+    return h(`tr.todo_${todo.id}^`,
       h("td", todo.priority),
       h("td", todo.description),
       h("td",
